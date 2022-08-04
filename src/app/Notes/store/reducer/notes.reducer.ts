@@ -19,11 +19,11 @@ export const noteReducer = createReducer(
   initialState,
   on(textNoteActions.addTextNote, (state: TextNoteState, { textNote }) => ({
     ...state,
-    textNotes: [...state.textNotes, textNote],
+    textNotes: [...(state.textNotes || []), textNote],
   })),
   on(textNoteActions.addPicNote, (state: TextNoteState, { picNote }) => ({
     ...state,
-    picNotes: [...state.picNotes, picNote],
+    picNotes: [...(state.picNotes || []), picNote],
   }))
 );
 

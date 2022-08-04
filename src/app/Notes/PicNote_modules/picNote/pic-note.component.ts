@@ -7,7 +7,7 @@ import { TextNoteState } from "../../store/reducer/notes.reducer";
 @Component({
   selector: "app-pic-note",
   templateUrl: "./pic-note.component.html",
-  styleUrls: ["./pic-note.component.scss"],
+  styleUrls: ["./pic-note.component.css"],
 })
 export class PicNoteComponent {
   imageSrc: string = "";
@@ -23,7 +23,7 @@ export class PicNoteComponent {
     this.store.dispatch(addPicNote(textNote));
   }
 
-  handleInputChange(e) {
+  handleInputChange(e:any) {
     var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
     var pattern = /image-*/;
     var reader = new FileReader();
@@ -35,7 +35,7 @@ export class PicNoteComponent {
     reader.readAsDataURL(file);
   }
   
-  _handleReaderLoaded(e) {
+  _handleReaderLoaded(e:any) {
     let reader = e.target;
     this.imageSrc = reader.result;
     console.log(this.imageSrc);

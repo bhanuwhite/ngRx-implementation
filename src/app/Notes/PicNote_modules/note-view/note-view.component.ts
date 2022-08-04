@@ -8,12 +8,12 @@ import { TextNoteState } from "../../store/reducer/notes.reducer";
 @Component({
   selector: "app-pic-note-view",
   templateUrl: "./note-view.component.html",
-  styleUrls: ["./note-view.component.scss"],
+  styleUrls: ["./note-view.component.css"],
 })
 export class PicNoteViewComponent {
   picNotes$: Observable<TextNote[]>;
 
   constructor(private store: Store<TextNoteState>) {
-    this.picNotes$ = this.store.pipe(select(selectPicNotes));
+    this.picNotes$ = <Observable<TextNote[]>>this.store.pipe(select(selectPicNotes));
   }
 }
